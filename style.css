@@ -188,7 +188,7 @@ body {
 }
 
 .movie-list-item-title {
-  background-color: #333;
+  background-color: transparent;
   padding: 0 10px;
   font-size: 32px;
   font-weight: bold;
@@ -200,7 +200,7 @@ body {
 }
 
 .movie-list-item-desc {
-  background-color: #333;
+  background-color: transparent;
   padding: 10px;
   font-size: 14px;
   position: absolute;
