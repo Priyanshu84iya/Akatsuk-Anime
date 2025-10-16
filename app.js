@@ -72,53 +72,60 @@ watchButtons.forEach(button => {
   button.addEventListener('click', (e) => {
     e.stopPropagation();
     
-    // Get anime title
+    // Get anime title and image
     let animeTitle = 'Anime';
+    let animeImage = 'img/background.jpg';
     const parentItem = button.closest('.movie-list-item');
     const featuredContent = button.closest('.featured-content');
     
     if (parentItem) {
       const titleElement = parentItem.querySelector('.movie-list-item-title');
+      const imgElement = parentItem.querySelector('.movie-list-item-img');
       if (titleElement) animeTitle = titleElement.textContent;
+      if (imgElement) animeImage = imgElement.src;
     } else if (featuredContent) {
       const titleImg = featuredContent.querySelector('.featured-title');
       if (titleImg) animeTitle = titleImg.alt || 'Featured Anime';
+      // Get background image from featured-content style
+      const bgStyle = featuredContent.style.background || featuredContent.style.backgroundImage;
+      const urlMatch = bgStyle.match(/url\(['"]?([^'"]+)['"]?\)/);
+      if (urlMatch) animeImage = urlMatch[1];
     }
     
-    openVideoPlayer(animeTitle);
+    openVideoPlayer(animeTitle, animeImage);
   });
 });
 
 // Video Player Modal
-function openVideoPlayer(animeTitle) {
+function openVideoPlayer(animeTitle, animeImage = 'img/background.jpg') {
   const videoPlayerHTML = `
-    <div class="video-player-modal" id="video-player-modal">
-      <div class="video-player-container">
+    <div class="video-player-modal" id="video-player-modal" onclick="closeOnOutsideClick(event)">
+      <div class="video-player-container" onclick="event.stopPropagation()">
         <div class="video-player-header">
           <h2><i class="fas fa-play-circle"></i> Now Playing: ${animeTitle}</h2>
-          <span class="video-player-close" onclick="closeVideoPlayer()">&times;</span>
+          <span class="video-player-close" onclick="closeVideoPlayer()" title="Close (Esc)">&times;</span>
         </div>
         <div class="video-player-wrapper">
-          <div class="video-placeholder">
+          <div class="video-placeholder" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('${animeImage}'); background-size: cover; background-position: center;">
             <i class="fas fa-play-circle play-icon"></i>
             <p class="video-message">Video player ready</p>
             <p class="video-submessage">Click play to start watching ${animeTitle}</p>
           </div>
           <div class="video-controls">
-            <button class="control-btn" onclick="alert('Rewind 10s')">
+            <button class="control-btn" onclick="alert('Rewind 10s')" title="Rewind">
               <i class="fas fa-backward"></i>
             </button>
-            <button class="control-btn play-pause-btn" onclick="togglePlayPause()">
+            <button class="control-btn play-pause-btn" onclick="togglePlayPause()" title="Play/Pause">
               <i class="fas fa-play"></i>
             </button>
-            <button class="control-btn" onclick="alert('Forward 10s')">
+            <button class="control-btn" onclick="alert('Forward 10s')" title="Forward">
               <i class="fas fa-forward"></i>
             </button>
             <div class="volume-control">
               <i class="fas fa-volume-up"></i>
-              <input type="range" class="volume-slider" min="0" max="100" value="70">
+              <input type="range" class="volume-slider" min="0" max="100" value="70" title="Volume">
             </div>
-            <button class="control-btn fullscreen-btn" onclick="alert('Fullscreen mode')">
+            <button class="control-btn fullscreen-btn" onclick="alert('Fullscreen mode')" title="Fullscreen">
               <i class="fas fa-expand"></i>
             </button>
           </div>
@@ -149,6 +156,12 @@ function closeVideoPlayer() {
   if (modal) {
     modal.remove();
     document.body.style.overflow = '';
+  }
+}
+
+function closeOnOutsideClick(event) {
+  if (event.target.id === 'video-player-modal') {
+    closeVideoPlayer();
   }
 }
 
