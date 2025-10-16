@@ -692,3 +692,159 @@ body {
   }
 }
 
+/* Info Modal Styles (for Bookmarks and Cart) */
+.info-modal {
+  display: flex;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.info-modal-content {
+  background-color: #1a1a1a;
+  padding: 40px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideDown 0.3s ease;
+}
+
+.info-modal-close {
+  color: #aaa;
+  float: right;
+  font-size: 32px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.info-modal-close:hover {
+  color: #ff5a00;
+}
+
+.info-modal-content h2 {
+  margin-bottom: 25px;
+  color: #ff5a00;
+  font-family: "Sen", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bookmark-list,
+.cart-list {
+  margin-top: 20px;
+}
+
+.bookmark-item,
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  gap: 15px;
+}
+
+.bookmark-item img,
+.cart-item img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.bookmark-item span {
+  flex: 1;
+  color: white;
+  font-weight: 500;
+}
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cart-item-title {
+  color: white;
+  font-weight: 500;
+}
+
+.cart-item-price {
+  color: #4dbf00;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.remove-bookmark,
+.remove-cart-item {
+  padding: 8px 15px;
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.remove-bookmark:hover,
+.remove-cart-item:hover {
+  background-color: #ff6666;
+  transform: scale(1.05);
+}
+
+.cart-total {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  text-align: right;
+  color: white;
+  font-size: 20px;
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, #ff5a00, #ff8c42);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 90, 0, 0.6);
+}
+
+.no-bookmarks,
+.no-items {
+  text-align: center;
+  color: #aaa;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+

@@ -226,4 +226,144 @@ profileItems.forEach(item => {
   });
 });
 
+// Sidebar Icons Functionality
+const homeIcon = document.getElementById('home-icon');
+const communityIcon = document.getElementById('community-icon');
+const bookmarkIcon = document.getElementById('bookmark-icon');
+const tvIcon = document.getElementById('tv-icon');
+const airingIcon = document.getElementById('airing-icon');
+const cartIcon = document.getElementById('cart-icon');
+
+// Home Icon - Navigate to homepage
+if (homeIcon) {
+  homeIcon.addEventListener('click', () => {
+    window.location.href = 'index.html';
+  });
+}
+
+// Community Icon - Show community/social features
+if (communityIcon) {
+  communityIcon.addEventListener('click', () => {
+    alert('Community Features Coming Soon!\n\n• Join discussions\n• Share reviews\n• Connect with other anime fans\n• Create watch parties');
+  });
+}
+
+// Bookmark Icon - Show bookmarked anime
+if (bookmarkIcon) {
+  bookmarkIcon.addEventListener('click', () => {
+    showBookmarkModal();
+  });
+}
+
+// TV Icon - Navigate to TV series page
+if (tvIcon) {
+  tvIcon.addEventListener('click', () => {
+    window.location.href = 'tv-series.html';
+  });
+}
+
+// Airing Icon - Navigate to top airing page
+if (airingIcon) {
+  airingIcon.addEventListener('click', () => {
+    window.location.href = 'top-airing.html';
+  });
+}
+
+// Cart Icon - Show shopping cart
+if (cartIcon) {
+  cartIcon.addEventListener('click', () => {
+    showCartModal();
+  });
+}
+
+// Bookmark Modal Function
+function showBookmarkModal() {
+  const bookmarks = [
+    { title: 'DAN DA DAN', img: 'img/1.jpg' },
+    { title: 'Your Name.', img: 'img/6.jpg' },
+    { title: 'Solo Leveling', img: 'img/11.jpg' },
+    { title: 'Demon Slayer', img: 'img/19.jpg' }
+  ];
+  
+  let modalHTML = `
+    <div class="info-modal" id="info-modal">
+      <div class="info-modal-content">
+        <span class="info-modal-close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+        <h2><i class="fas fa-bookmark"></i> My Bookmarks</h2>
+        <div class="bookmark-list">
+  `;
+  
+  if (bookmarks.length === 0) {
+    modalHTML += '<p class="no-bookmarks">No bookmarks yet. Start adding your favorite anime!</p>';
+  } else {
+    bookmarks.forEach(bookmark => {
+      modalHTML += `
+        <div class="bookmark-item">
+          <img src="${bookmark.img}" alt="${bookmark.title}">
+          <span>${bookmark.title}</span>
+          <button class="remove-bookmark">Remove</button>
+        </div>
+      `;
+    });
+  }
+  
+  modalHTML += `
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+// Cart Modal Function
+function showCartModal() {
+  const cartItems = [
+    { title: 'One Piece Merchandise', price: '$29.99', img: 'img/17.jpg' },
+    { title: 'Demon Slayer Poster', price: '$15.99', img: 'img/19.jpg' }
+  ];
+  
+  let total = 45.98;
+  
+  let modalHTML = `
+    <div class="info-modal" id="info-modal">
+      <div class="info-modal-content">
+        <span class="info-modal-close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+        <h2><i class="fas fa-shopping-cart"></i> Shopping Cart</h2>
+        <div class="cart-list">
+  `;
+  
+  if (cartItems.length === 0) {
+    modalHTML += '<p class="no-items">Your cart is empty. Start shopping!</p>';
+  } else {
+    cartItems.forEach(item => {
+      modalHTML += `
+        <div class="cart-item">
+          <img src="${item.img}" alt="${item.title}">
+          <div class="cart-item-info">
+            <span class="cart-item-title">${item.title}</span>
+            <span class="cart-item-price">${item.price}</span>
+          </div>
+          <button class="remove-cart-item">Remove</button>
+        </div>
+      `;
+    });
+    modalHTML += `
+      <div class="cart-total">
+        <strong>Total: $${total.toFixed(2)}</strong>
+      </div>
+      <button class="checkout-btn">Proceed to Checkout</button>
+    `;
+  }
+  
+  modalHTML += `
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+
 
