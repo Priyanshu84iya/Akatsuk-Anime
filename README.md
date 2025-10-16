@@ -1,109 +1,129 @@
-# Akatsuki - Anime Streaming Website
+<div align="center">
 
-A modern, responsive anime streaming website with a sleek dark theme and smooth animations.
+# 🎌 Akatsuki Anime
 
-## Features
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
 
-- **Multiple Pages**: Home, Movies, TV Series, Most Popular, and Top Airing
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
-- **Dark/Light Mode Toggle**: Switch between dark and light themes
-- **Interactive Carousel**: Browse through anime collections with smooth scrolling
-- **Modern UI/UX**: 
-  - Smooth hover effects and transitions
-  - Beautiful gradients and shadows
-  - Professional typography with Poppins, Inter, and Sen fonts
-  - Animated navigation elements
+**A modern, feature-rich anime streaming platform with stunning UI/UX**
 
-## Pages
+[🚀 View Demo](#) • [📖 Documentation](FEATURES.md) • [🐛 Report Bug](#)
 
-1. **index.html** - Home page featuring new releases and popular anime
-2. **movies.html** - Dedicated page for anime movies (Popular, Action, Romance)
-3. **tv-series.html** - TV series categorized by type (Trending, Long-running, Slice of Life)
-4. **popular.html** - Most popular anime across all genres
-5. **top-airing.html** - Currently airing shows and upcoming releases
+</div>
 
-## File Structure
+---
+
+## ✨ Features
+
+<table>
+<tr>
+<td width="50%">
+
+🎬 **Anime Details Pages**  
+Comprehensive anime information with trailers, cast, and reviews
+
+🔍 **Smart Search**  
+Instant search with real-time filtering across all anime
+
+📱 **Fully Responsive**  
+Optimized for desktop, tablet, and mobile devices
+
+</td>
+<td width="50%">
+
+🎨 **Dark/Light Mode**  
+Seamless theme switching with smooth transitions
+
+⚡ **Loading Animations**  
+Skeleton screens, shimmer effects, and spinners
+
+🎥 **Video Player**  
+Integrated player with episode selection and controls
+
+</td>
+</tr>
+</table>
+
+## 🎯 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Priyanshu84iya/Akatsuk-Anime.git
+
+# Navigate to the project
+cd Akatsuk-Anime
+
+# Open in browser
+start index.html
+```
+
+## 🛠️ Tech Stack
+
+- **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **Fonts:** Poppins, Inter, Sen, Roboto
+- **Icons:** Font Awesome 6.4.0
+- **Design:** Gradient UI, Smooth Animations, Modern Cards
+
+## 📂 Project Structure
 
 ```
-Akatsuk-Anime-main/
-│
-├── index.html          # Main homepage
-├── movies.html         # Movies page
-├── tv-series.html      # TV series page
-├── popular.html        # Popular anime page
-├── top-airing.html     # Top airing page
-├── style.css           # Main stylesheet with modern design
-├── app.js              # JavaScript for interactivity
-├── LICENSE             # License file
-└── img/                # Image directory
-    ├── profile.gif
-    ├── f-1.jpg, f-2.jpg  # Featured backgrounds
-    ├── f-t-1.png, f-t-2.webp  # Featured titles
-    └── 1.jpg - 19.jpg    # Anime thumbnails
+├── 📄 index.html              # Homepage
+├── 📄 anime-details.html      # Dynamic anime details
+├── 🎨 style.css               # Main stylesheet + animations
+├── 🎨 anime-details.css       # Details page styling
+├── ⚙️ app.js                  # Core functionality
+├── ⚙️ anime-details.js        # Details page logic
+└── 📁 img/                    # Image assets
 ```
 
-## Technologies Used
+## 🎨 Color Palette
 
-- HTML5
-- CSS3 (with modern features like gradients, transforms, and transitions)
-- Vanilla JavaScript (ES6+)
-- Google Fonts (Poppins, Inter, Sen, Roboto)
-- Font Awesome 6.4.0 for icons
+```css
+Primary:    #ff5a00  /* Vibrant Orange */
+Secondary:  #ff8c42  /* Soft Orange */
+Accent:     #4dbf00  /* Success Green */
+Dark:       #151515  /* Background */
+```
 
-## Key Improvements Made
+## 🌟 Key Features Implemented
 
-### Design Enhancements:
-- ✅ Added modern Google Fonts (Poppins, Inter) for better typography
-- ✅ Implemented gradient buttons and hover effects
-- ✅ Enhanced color scheme with orange (#ff5a00) accent color
-- ✅ Added smooth transitions and animations throughout
-- ✅ Improved navbar with sticky positioning and shadow
-- ✅ Enhanced movie cards with better hover states
-- ✅ Added glowing effects and shadows for depth
+✅ 19 Anime with full details pages  
+✅ YouTube trailer integration  
+✅ Search with live filtering  
+✅ Bookmark & Cart functionality  
+✅ Profile dropdown menu  
+✅ Interactive video player  
+✅ Smooth carousel navigation  
+✅ Loading states & skeletons  
+✅ Fullscreen video support  
+✅ Share functionality  
 
-### Functionality:
-- ✅ Fixed all HTML errors (added DOCTYPE)
-- ✅ Created 4 new separate pages with unique content
-- ✅ Added proper navigation links between all pages
-- ✅ Improved JavaScript carousel functionality
-- ✅ Added keyboard navigation support
-- ✅ Enhanced dark/light mode toggle
-- ✅ Added logo click-to-home functionality
+## 📱 Pages
 
-### User Experience:
-- ✅ Responsive design for mobile devices
-- ✅ Smooth scrolling between sections
-- ✅ Improved readability with better contrast
-- ✅ Enhanced visual hierarchy with better spacing
-- ✅ Professional gradient buttons with hover effects
+| Page | Description |
+|------|-------------|
+| 🏠 Home | Featured anime, new releases, trending |
+| 🎬 Movies | Anime movies collection |
+| 📺 TV Series | Ongoing and completed series |
+| 🔥 Popular | Most popular anime |
+| ⏰ Top Airing | Currently airing shows |
+| 📄 Details | Comprehensive anime information |
 
-## Color Palette
+## 🤝 Contributing
 
-- Primary Orange: `#ff5a00`
-- Secondary Orange: `#ff8c42`
-- Primary Green: `#4dbf00`
-- Secondary Green: `#5dd605`
-- Dark Background: `#151515`
-- Black: `#000000`
-- Light Background: `#f5f5f5`
-- Text Light: `#e0e0e0`
+Contributions are welcome! Feel free to open issues or submit pull requests.
 
-## Browser Support
+## 📄 License
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+This project is open source and available under the [MIT License](LICENSE).
 
-## Future Enhancements
+---
 
-- Add search functionality
-- Implement user authentication
-- Create video player pages
-- Add anime details pages
-- Implement favorite/bookmark feature
-- Add filtering and sorting options
+<div align="center">
 
-## Credits
+**Made with ❤️ by [Priyanshu](https://github.com/Priyanshu84iya)**
 
-Created with ❤️ for anime enthusiasts worldwide.
+⭐ Star this repo if you like it!
+
+</div>
