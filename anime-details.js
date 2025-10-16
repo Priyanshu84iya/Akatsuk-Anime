@@ -269,6 +269,126 @@ function loadReviews(reviews) {
     `).join('');
 }
 
+// Video Player Modal Function (for anime-details page)
+function openVideoPlayer(animeTitle, animeImage = 'img/background.jpg') {
+  const videoPlayerHTML = `
+    <div class="video-player-modal" id="video-player-modal" onclick="closeOnOutsideClickDetails(event)">
+      <div class="video-player-container" onclick="event.stopPropagation()">
+        <div class="video-player-header">
+          <h2><i class="fas fa-play-circle"></i> Now Playing: ${animeTitle}</h2>
+          <span class="video-player-close" onclick="closeVideoPlayerDetails()" title="Close (Esc)">&times;</span>
+        </div>
+        <div class="video-player-wrapper">
+          <div class="video-placeholder" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('${animeImage}'); background-size: cover; background-position: center;">
+            <i class="fas fa-play-circle play-icon"></i>
+            <p class="video-message">Video player ready</p>
+            <p class="video-submessage">Click play to start watching ${animeTitle}</p>
+          </div>
+          <div class="video-controls">
+            <button class="control-btn" onclick="showNotification('Rewound 10 seconds')" title="Rewind">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button class="control-btn play-pause-btn" onclick="togglePlayPauseDetails()" title="Play/Pause">
+              <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn" onclick="showNotification('Forwarded 10 seconds')" title="Forward">
+              <i class="fas fa-forward"></i>
+            </button>
+            <div class="volume-control">
+              <i class="fas fa-volume-up" id="volume-icon-details"></i>
+              <input type="range" class="volume-slider" min="0" max="100" value="70" title="Volume" oninput="updateVolumeDetails(this.value)">
+            </div>
+            <button class="control-btn fullscreen-btn" onclick="toggleFullscreenDetails()" title="Fullscreen">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="episode-selector">
+            <button class="episode-btn active" onclick="selectEpisodeDetails(this, 1)">Episode 1</button>
+            <button class="episode-btn" onclick="selectEpisodeDetails(this, 2)">Episode 2</button>
+            <button class="episode-btn" onclick="selectEpisodeDetails(this, 3)">Episode 3</button>
+            <button class="episode-btn" onclick="selectEpisodeDetails(this, 4)">Episode 4</button>
+            <button class="episode-btn" onclick="selectEpisodeDetails(this, 5)">Episode 5</button>
+          </div>
+          <div class="video-description">
+            <h3>About this anime</h3>
+            <p>Experience the best anime streaming with high-quality video and smooth playback. Enjoy ${animeTitle} with subtitles and multiple quality options.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', videoPlayerHTML);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoPlayerDetails() {
+  const modal = document.getElementById('video-player-modal');
+  if (modal) {
+    modal.remove();
+    document.body.style.overflow = '';
+  }
+}
+
+function closeOnOutsideClickDetails(event) {
+  if (event.target.id === 'video-player-modal') {
+    closeVideoPlayerDetails();
+  }
+}
+
+function togglePlayPauseDetails() {
+  const btn = document.querySelector('.play-pause-btn i');
+  if (btn.classList.contains('fa-play')) {
+    btn.classList.remove('fa-play');
+    btn.classList.add('fa-pause');
+    showNotification('Playing...');
+  } else {
+    btn.classList.remove('fa-pause');
+    btn.classList.add('fa-play');
+    showNotification('Paused');
+  }
+}
+
+function selectEpisodeDetails(button, episodeNum) {
+  document.querySelectorAll('.episode-btn').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+  showNotification(`Now playing: Episode ${episodeNum}`);
+}
+
+function updateVolumeDetails(value) {
+  const icon = document.getElementById('volume-icon-details');
+  if (icon) {
+    if (value == 0) {
+      icon.className = 'fas fa-volume-mute';
+    } else if (value < 50) {
+      icon.className = 'fas fa-volume-down';
+    } else {
+      icon.className = 'fas fa-volume-up';
+    }
+  }
+}
+
+function toggleFullscreenDetails() {
+  const modal = document.getElementById('video-player-modal');
+  if (!document.fullscreenElement) {
+    if (modal.requestFullscreen) {
+      modal.requestFullscreen();
+    } else if (modal.webkitRequestFullscreen) {
+      modal.webkitRequestFullscreen();
+    } else if (modal.msRequestFullscreen) {
+      modal.msRequestFullscreen();
+    }
+    showNotification('Entered fullscreen mode');
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+    showNotification('Exited fullscreen mode');
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     loadAnimeData();
     
@@ -345,6 +465,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById('load-more-reviews').addEventListener('click', () => {
         showNotification('No more reviews available');
+    });
+    
+    // Close video player with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const videoModal = document.getElementById('video-player-modal');
+            if (videoModal) {
+                closeVideoPlayerDetails();
+            }
+        }
     });
 });
 

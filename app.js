@@ -174,31 +174,31 @@ function openVideoPlayer(animeTitle, animeImage = 'img/background.jpg') {
             <p class="video-submessage">Click play to start watching ${animeTitle}</p>
           </div>
           <div class="video-controls">
-            <button class="control-btn" onclick="alert('Rewind 10s')" title="Rewind">
+            <button class="control-btn" onclick="showNotificationMain('Rewound 10 seconds')" title="Rewind">
               <i class="fas fa-backward"></i>
             </button>
             <button class="control-btn play-pause-btn" onclick="togglePlayPause()" title="Play/Pause">
               <i class="fas fa-play"></i>
             </button>
-            <button class="control-btn" onclick="alert('Forward 10s')" title="Forward">
+            <button class="control-btn" onclick="showNotificationMain('Forwarded 10 seconds')" title="Forward">
               <i class="fas fa-forward"></i>
             </button>
             <div class="volume-control">
-              <i class="fas fa-volume-up"></i>
-              <input type="range" class="volume-slider" min="0" max="100" value="70" title="Volume">
+              <i class="fas fa-volume-up" id="volume-icon"></i>
+              <input type="range" class="volume-slider" min="0" max="100" value="70" title="Volume" oninput="updateVolume(this.value)">
             </div>
-            <button class="control-btn fullscreen-btn" onclick="alert('Fullscreen mode')" title="Fullscreen">
+            <button class="control-btn fullscreen-btn" onclick="toggleFullscreen()" title="Fullscreen">
               <i class="fas fa-expand"></i>
             </button>
           </div>
         </div>
         <div class="video-info">
           <div class="episode-selector">
-            <button class="episode-btn active">Episode 1</button>
-            <button class="episode-btn">Episode 2</button>
-            <button class="episode-btn">Episode 3</button>
-            <button class="episode-btn">Episode 4</button>
-            <button class="episode-btn">Episode 5</button>
+            <button class="episode-btn active" onclick="selectEpisode(this, 1)">Episode 1</button>
+            <button class="episode-btn" onclick="selectEpisode(this, 2)">Episode 2</button>
+            <button class="episode-btn" onclick="selectEpisode(this, 3)">Episode 3</button>
+            <button class="episode-btn" onclick="selectEpisode(this, 4)">Episode 4</button>
+            <button class="episode-btn" onclick="selectEpisode(this, 5)">Episode 5</button>
           </div>
           <div class="video-description">
             <h3>About this anime</h3>
@@ -321,7 +321,7 @@ if (searchInput) {
     }
     
     searchResults.innerHTML = filteredAnime.map(anime => `
-      <div class="search-result-item">
+      <div class="search-result-item" onclick="navigateToAnimeDetails('${anime.title}'); searchModal.classList.remove('active'); searchInput.value = ''; searchResults.innerHTML = '';" style="cursor: pointer;">
         <img src="${anime.img}" alt="${anime.title}" class="search-result-img">
         <div class="search-result-info">
           <div class="search-result-title">${anime.title}</div>
@@ -466,10 +466,10 @@ function showBookmarkModal() {
   } else {
     bookmarks.forEach(bookmark => {
       modalHTML += `
-        <div class="bookmark-item">
+        <div class="bookmark-item" style="cursor: pointer;" onclick="event.target.tagName !== 'BUTTON' && navigateToAnimeDetails('${bookmark.title}')">
           <img src="${bookmark.img}" alt="${bookmark.title}">
           <span>${bookmark.title}</span>
-          <button class="remove-bookmark">Remove</button>
+          <button class="remove-bookmark" onclick="event.stopPropagation(); this.parentElement.style.display='none'; showNotificationMain('Removed from bookmarks');">Remove</button>
         </div>
       `;
     });
@@ -482,6 +482,74 @@ function showBookmarkModal() {
   `;
   
   document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
+
+// Utility function for notifications in main pages
+function showNotificationMain(message) {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #ff5a00, #ff8c42);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(255, 90, 0, 0.4);
+    z-index: 9999;
+    font-weight: 600;
+    animation: slideUp 0.3s ease-out;
+  `;
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.opacity = '0';
+    notification.style.transform = 'translateY(20px)';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+// Episode selector function
+function selectEpisode(button, episodeNum) {
+  document.querySelectorAll('.episode-btn').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+  showNotificationMain(`Now playing: Episode ${episodeNum}`);
+}
+
+// Update volume function
+function updateVolume(value) {
+  const icon = document.getElementById('volume-icon');
+  if (icon) {
+    if (value == 0) {
+      icon.className = 'fas fa-volume-mute';
+    } else if (value < 50) {
+      icon.className = 'fas fa-volume-down';
+    } else {
+      icon.className = 'fas fa-volume-up';
+    }
+  }
+  showNotificationMain(`Volume: ${value}%`);
+}
+
+// Toggle fullscreen function
+function toggleFullscreen() {
+  const modal = document.getElementById('video-player-modal');
+  if (!document.fullscreenElement) {
+    if (modal.requestFullscreen) {
+      modal.requestFullscreen();
+    } else if (modal.webkitRequestFullscreen) {
+      modal.webkitRequestFullscreen();
+    } else if (modal.msRequestFullscreen) {
+      modal.msRequestFullscreen();
+    }
+    showNotificationMain('Entered fullscreen mode');
+  } else {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+    showNotificationMain('Exited fullscreen mode');
+  }
 }
 
 // Cart Modal Function
@@ -512,7 +580,7 @@ function showCartModal() {
             <span class="cart-item-title">${item.title}</span>
             <span class="cart-item-price">${item.price}</span>
           </div>
-          <button class="remove-cart-item">Remove</button>
+          <button class="remove-cart-item" onclick="this.parentElement.style.display='none'; showNotificationMain('Item removed from cart');">Remove</button>
         </div>
       `;
     });
@@ -520,7 +588,7 @@ function showCartModal() {
       <div class="cart-total">
         <strong>Total: $${total.toFixed(2)}</strong>
       </div>
-      <button class="checkout-btn">Proceed to Checkout</button>
+      <button class="checkout-btn" onclick="alert('Processing checkout...\\n\\nTotal: $${total.toFixed(2)}\\n\\nThis feature is coming soon!'); document.getElementById('info-modal').remove();">Proceed to Checkout</button>
     `;
   }
   
