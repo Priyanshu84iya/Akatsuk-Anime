@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Movies - Akatsuki</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">Akatsuki</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item"><a href="index.html">Home</a></li>
+                    <li class="menu-list-item active"><a href="movies.html">Movies</a></li>
+                    <li class="menu-list-item"><a href="tv-series.html">TV Series</a></li>
+                    <li class="menu-list-item"><a href="popular.html">Most Popular</a></li>
+                    <li class="menu-list-item"><a href="top-airing.html">Top Airing</a></li>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <img class="profile-picture" src="img/profile.gif" alt="">
+                <div class="profile-text-container" id="profile-trigger">
+                    <span class="profile-text">Profile</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="profile-dropdown-header">
+                        <img src="img/profile.gif" alt="Profile" class="profile-dropdown-img">
+                        <div>
+                            <div class="profile-dropdown-name">Anime Fan</div>
+                            <div class="profile-dropdown-email">user@akatsuki.com</div>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown-divider"></div>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-heart"></i> My Favorites
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-history"></i> Watch History
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <div class="profile-dropdown-divider"></div>
+                    <a href="#" class="profile-dropdown-item logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+                <div class="toggle">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <i class="left-menu-icon fas fa-search" id="search-icon" title="Search Anime"></i>
+        <i class="left-menu-icon fas fa-home" id="home-icon" title="Home"></i>
+        <i class="left-menu-icon fas fa-users" id="community-icon" title="Community"></i>
+        <i class="left-menu-icon fas fa-bookmark" id="bookmark-icon" title="My Bookmarks"></i>
+        <i class="left-menu-icon fas fa-tv" id="tv-icon" title="TV Series"></i>
+        <i class="left-menu-icon fas fa-hourglass-start" id="airing-icon" title="Currently Airing"></i>
+        <i class="left-menu-icon fas fa-shopping-cart" id="cart-icon" title="Shopping Cart"></i>
+    </div>
+    
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-content">
+            <span class="search-close">&times;</span>
+            <h2>Search Anime</h2>
+            <input type="text" id="search-input" class="search-input" placeholder="Search for anime...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/6.jpg');">
+                <img class="featured-title" src="img/f-t-1.png" alt="">
+                <p class="featured-desc">Mitsuha and Taki are total strangers living completely different lives. But when Mitsuha makes a wish to leave her mountain town and for the bustling city of Tokyo, they become connected in a bizarre way. She dreams she is a boy living in Tokyo while Taki dreams he is a girl from a rural town he's never been to.</p>
+                <button class="featured-button">WATCH NOW</button>
+            </div>
+            
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">POPULAR ANIME MOVIES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/6.jpg" alt="">
+                            <span class="movie-list-item-title">Your Name.</span>
+                            <p class="movie-list-item-desc">Mitsuha and Taki are total strangers living completely different lives.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/7.jpg" alt="">
+                            <span class="movie-list-item-title">I Want to Eat Your Pancreas</span>
+                            <p class="movie-list-item-desc">Spring time in April and the last of the cherry blossoms are still in bloom.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/8.jpg" alt="">
+                            <span class="movie-list-item-title">A Silent Voice</span>
+                            <p class="movie-list-item-desc">After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/14.jpg" alt="">
+                            <span class="movie-list-item-title">Weathering With You</span>
+                            <p class="movie-list-item-desc">A boy who can control the weather meets a girl with a mysterious power.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/19.jpg" alt="">
+                            <span class="movie-list-item-title">Demon Slayer: Mugen Train</span>
+                            <p class="movie-list-item-desc">Tanjiro and his friends board the Mugen Train to investigate mysterious disappearances.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/16.jpg" alt="">
+                            <span class="movie-list-item-title">Suzume</span>
+                            <p class="movie-list-item-desc">A coming-of-age story about a girl who encounters mysterious doors.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/11.jpg" alt="">
+                            <span class="movie-list-item-title">Jujutsu Kaisen 0</span>
+                            <p class="movie-list-item-desc">The prequel to the main series, exploring Yuta Okkotsu's past.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">ACTION MOVIES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/19.jpg" alt="">
+                            <span class="movie-list-item-title">Demon Slayer Movie</span>
+                            <p class="movie-list-item-desc">Join Tanjiro and friends on an epic journey on the Mugen Train.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/11.jpg" alt="">
+                            <span class="movie-list-item-title">Jujutsu Kaisen 0</span>
+                            <p class="movie-list-item-desc">Witness the origin story of cursed spirits and sorcerers.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/13.jpg" alt="">
+                            <span class="movie-list-item-title">NieR:Automata</span>
+                            <p class="movie-list-item-desc">The sudden aerial invasion of Earth by Aliens and their creations led mankind to the brink of extinction.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/12.jpg" alt="">
+                            <span class="movie-list-item-title">Black Clover Movie</span>
+                            <p class="movie-list-item-desc">Asta and the Black Bulls face their greatest challenge yet.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/5.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Lock: Episode Nagi</span>
+                            <p class="movie-list-item-desc">Experience the Blue Lock program from Nagi's perspective.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/17.jpg" alt="">
+                            <span class="movie-list-item-title">One Piece Film: Red</span>
+                            <p class="movie-list-item-desc">The Straw Hats encounter a mysterious singer with a shocking connection to Shanks.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/15.jpg" alt="">
+                            <span class="movie-list-item-title">Chainsaw Man</span>
+                            <p class="movie-list-item-desc">Denji's wild journey as the Chainsaw Devil.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">ROMANCE MOVIES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/6.jpg" alt="">
+                            <span class="movie-list-item-title">Your Name.</span>
+                            <p class="movie-list-item-desc">A beautiful story of two souls connected across time and space.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/7.jpg" alt="">
+                            <span class="movie-list-item-title">I Want to Eat Your Pancreas</span>
+                            <p class="movie-list-item-desc">A heartwarming tale of friendship and love in the face of adversity.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/8.jpg" alt="">
+                            <span class="movie-list-item-title">A Silent Voice</span>
+                            <p class="movie-list-item-desc">A touching story about redemption, forgiveness, and young love.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/14.jpg" alt="">
+                            <span class="movie-list-item-title">Weathering With You</span>
+                            <p class="movie-list-item-desc">A boy meets a girl who can manipulate the weather.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/2.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Box</span>
+                            <p class="movie-list-item-desc">Taiki Inomata's journey in badminton and love.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/4.jpg" alt="">
+                            <span class="movie-list-item-title">365 Days to the Wedding</span>
+                            <p class="movie-list-item-desc">Two introverted coworkers find themselves in an unexpected romance.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/3.jpg" alt="">
+                            <span class="movie-list-item-title">Tying the Knot with an Amagami Sister</span>
+                            <p class="movie-list-item-desc">Uryu's journey through love and tradition.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

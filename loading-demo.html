@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animations Demo - Akatsuki</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-color: #151515;
+            color: white;
+            font-family: "Poppins", sans-serif;
+            padding: 50px;
+        }
+        
+        .demo-section {
+            margin-bottom: 60px;
+        }
+        
+        .demo-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ff5a00;
+            margin-bottom: 30px;
+            font-family: "Sen", sans-serif;
+        }
+        
+        .demo-description {
+            color: #aaa;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+        
+        .demo-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .spinner-demo {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .spinner-item {
+            text-align: center;
+        }
+        
+        .spinner-label {
+            margin-top: 15px;
+            color: #ff5a00;
+            font-weight: 600;
+        }
+        
+        .skeleton-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+        }
+        
+        .progress-demo {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .progress-item {
+            width: 100%;
+        }
+        
+        .progress-label {
+            color: #aaa;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .btn-demo {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .loading-btn {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, #ff5a00, #ff8c42);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+        }
+        
+        .loading-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 90, 0, 0.5);
+        }
+        
+        .loading-btn.loading {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .loading-btn .btn-spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .loading-btn.loading .btn-spinner {
+            display: block;
+        }
+        
+        .shimmer-card {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(90deg, #2a2a2a 25%, #3a3a3a 50%, #2a2a2a 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 15px;
+        }
+        
+        .pulse-card {
+            width: 100%;
+            height: 300px;
+            background: #2a2a2a;
+            border-radius: 15px;
+            animation: skeletonPulse 1.5s ease-in-out infinite;
+        }
+        
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #ff5a00;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            background: rgba(255, 90, 0, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 90, 0, 0.2);
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    
+    <h1 style="font-size: 48px; font-family: 'Sen', sans-serif; margin-bottom: 20px;">
+        Loading Animations Demo
+    </h1>
+    <p style="color: #aaa; font-size: 18px; margin-bottom: 60px;">
+        Explore all the loading animations and skeleton screens implemented in Akatsuki
+    </p>
+    
+    <!-- Spinners Section -->
+    <div class="demo-section">
+        <div class="demo-title">1. Loading Spinners</div>
+        <p class="demo-description">Various loading spinner animations for different use cases</p>
+        <div class="demo-container">
+            <div class="spinner-demo">
+                <div class="spinner-item">
+                    <div class="loading-spinner"></div>
+                    <div class="spinner-label">Default Spinner</div>
+                </div>
+                <div class="spinner-item">
+                    <div class="loading-spinner" style="width: 40px; height: 40px; border-width: 4px;"></div>
+                    <div class="spinner-label">Small Spinner</div>
+                </div>
+                <div class="spinner-item">
+                    <div class="loading-spinner" style="width: 100px; height: 100px; border-width: 8px;"></div>
+                    <div class="spinner-label">Large Spinner</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Progress Bars Section -->
+    <div class="demo-section">
+        <div class="demo-title">2. Progress Bars</div>
+        <p class="demo-description">Progress indicators for file uploads, downloads, and loading states</p>
+        <div class="demo-container">
+            <div class="progress-demo">
+                <div class="progress-item">
+                    <div class="progress-label">Determinate Progress Bar (75%)</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">Determinate Progress Bar (45%)</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-fill" style="width: 45%;"></div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">Indeterminate Progress Bar</div>
+                    <div class="progress-bar-indeterminate"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Skeleton Screens Section -->
+    <div class="demo-section">
+        <div class="demo-title">3. Skeleton Screens</div>
+        <p class="demo-description">Placeholder content with shimmer and pulse effects</p>
+        <div class="demo-container">
+            <div class="skeleton-grid">
+                <div class="shimmer-card"></div>
+                <div class="pulse-card"></div>
+                <div class="shimmer-card"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Button Loading States Section -->
+    <div class="demo-section">
+        <div class="demo-title">4. Button Loading States</div>
+        <p class="demo-description">Interactive buttons with loading animations</p>
+        <div class="demo-container">
+            <div class="btn-demo">
+                <button class="loading-btn" onclick="simulateLoading(this)">
+                    <span class="btn-spinner"></span>
+                    <span class="btn-text">Click to Load</span>
+                </button>
+                <button class="loading-btn" onclick="simulateLoading(this)">
+                    <span class="btn-spinner"></span>
+                    <span class="btn-text">Submit Form</span>
+                </button>
+                <button class="loading-btn" onclick="simulateLoading(this)">
+                    <span class="btn-spinner"></span>
+                    <span class="btn-text">Upload File</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Page Loading Section -->
+    <div class="demo-section">
+        <div class="demo-title">5. Full Page Loading</div>
+        <p class="demo-description">Complete page loading state with spinner and text</p>
+        <div class="demo-container">
+            <div class="page-loading">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Loading content<span class="loading-dots"></span></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Image Loading Section -->
+    <div class="demo-section">
+        <div class="demo-title">6. Image Loading Effects</div>
+        <p class="demo-description">Shimmer effect on images while they load</p>
+        <div class="demo-container">
+            <div class="skeleton-grid">
+                <div class="img-loading" style="width: 100%; height: 300px; border-radius: 15px;">
+                    <img src="img/1.jpg" alt="Anime" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                </div>
+                <div class="img-loading" style="width: 100%; height: 300px; border-radius: 15px;">
+                    <img src="img/5.jpg" alt="Anime" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                </div>
+                <div class="img-loading" style="width: 100%; height: 300px; border-radius: 15px;">
+                    <img src="img/19.jpg" alt="Anime" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simulate button loading
+        function simulateLoading(button) {
+            button.classList.add('loading');
+            const textSpan = button.querySelector('.btn-text');
+            const originalText = textSpan.textContent;
+            textSpan.textContent = 'Loading...';
+            
+            setTimeout(() => {
+                button.classList.remove('loading');
+                textSpan.textContent = originalText;
+            }, 3000);
+        }
+        
+        // Image loading simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const imgContainers = document.querySelectorAll('.img-loading');
+            imgContainers.forEach(container => {
+                const img = container.querySelector('img');
+                if (img.complete) {
+                    container.classList.add('loaded');
+                } else {
+                    img.addEventListener('load', () => {
+                        container.classList.add('loaded');
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

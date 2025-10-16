@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Top Airing - Akatsuki</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">Akatsuki</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item"><a href="index.html">Home</a></li>
+                    <li class="menu-list-item"><a href="movies.html">Movies</a></li>
+                    <li class="menu-list-item"><a href="tv-series.html">TV Series</a></li>
+                    <li class="menu-list-item"><a href="popular.html">Most Popular</a></li>
+                    <li class="menu-list-item active"><a href="top-airing.html">Top Airing</a></li>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <img class="profile-picture" src="img/profile.gif" alt="">
+                <div class="profile-text-container" id="profile-trigger">
+                    <span class="profile-text">Profile</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="profile-dropdown-header">
+                        <img src="img/profile.gif" alt="Profile" class="profile-dropdown-img">
+                        <div>
+                            <div class="profile-dropdown-name">Anime Fan</div>
+                            <div class="profile-dropdown-email">user@akatsuki.com</div>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown-divider"></div>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-heart"></i> My Favorites
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-history"></i> Watch History
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <div class="profile-dropdown-divider"></div>
+                    <a href="#" class="profile-dropdown-item logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+                <div class="toggle">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <i class="left-menu-icon fas fa-search" id="search-icon" title="Search Anime"></i>
+        <i class="left-menu-icon fas fa-home" id="home-icon" title="Home"></i>
+        <i class="left-menu-icon fas fa-users" id="community-icon" title="Community"></i>
+        <i class="left-menu-icon fas fa-bookmark" id="bookmark-icon" title="My Bookmarks"></i>
+        <i class="left-menu-icon fas fa-tv" id="tv-icon" title="TV Series"></i>
+        <i class="left-menu-icon fas fa-hourglass-start" id="airing-icon" title="Currently Airing"></i>
+        <i class="left-menu-icon fas fa-shopping-cart" id="cart-icon" title="Shopping Cart"></i>
+    </div>
+    
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-content">
+            <span class="search-close">&times;</span>
+            <h2>Search Anime</h2>
+            <input type="text" id="search-input" class="search-input" placeholder="Search for anime...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/1.jpg');">
+                <img class="featured-title" src="img/f-t-1.png" alt="">
+                <p class="featured-desc">Momo Ayase and Ken Takakura clash over the existence of ghosts and aliens. When both supernatural forces appear, they must team up to survive. Together, they challenge the paranormal forces threatening their world in this wild, action-packed adventure that blends horror, comedy, and romance!</p>
+                <button class="featured-button">WATCH NOW</button>
+            </div>
+            
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">CURRENTLY AIRING - FALL 2024</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/1.jpg" alt="">
+                            <span class="movie-list-item-title">DAN DA DAN</span>
+                            <p class="movie-list-item-desc">Together, they must challenge the paranormal forces threatening their world.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/2.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Box</span>
+                            <p class="movie-list-item-desc">Taiki Inomata loves badminton and dreams of reaching nationals.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/9.jpg" alt="">
+                            <span class="movie-list-item-title">Re:ZERO Season 3</span>
+                            <p class="movie-list-item-desc">The third season of Re:Zero kara Hajimeru Isekai Seikatsu.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/5.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Lock Season 2</span>
+                            <p class="movie-list-item-desc">The intense soccer training program continues!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/4.jpg" alt="">
+                            <span class="movie-list-item-title">365 Days to the Wedding</span>
+                            <p class="movie-list-item-desc">Takuya and Rika navigate their fake relationship.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/10.jpg" alt="">
+                            <span class="movie-list-item-title">You are Ms. Servant</span>
+                            <p class="movie-list-item-desc">A mysterious maid appears at Hitoyoshi's door.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/3.jpg" alt="">
+                            <span class="movie-list-item-title">Tying the Knot with an Amagami Sister</span>
+                            <p class="movie-list-item-desc">Uryu Kamihate's journey at a shrine continues.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">ONGOING LONG-RUNNERS</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/17.jpg" alt="">
+                            <span class="movie-list-item-title">One Piece</span>
+                            <p class="movie-list-item-desc">The Straw Hats continue their journey through the Egghead Arc!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/19.jpg" alt="">
+                            <span class="movie-list-item-title">Demon Slayer</span>
+                            <p class="movie-list-item-desc">The Hashira Training Arc brings new challenges.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/12.jpg" alt="">
+                            <span class="movie-list-item-title">Black Clover</span>
+                            <p class="movie-list-item-desc">Asta's quest to become Wizard King continues!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/18.jpg" alt="">
+                            <span class="movie-list-item-title">Tower of God</span>
+                            <p class="movie-list-item-desc">Bam climbs higher in the mysterious tower.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/13.jpg" alt="">
+                            <span class="movie-list-item-title">NieR:Automata Ver1.1a</span>
+                            <p class="movie-list-item-desc">2B and 9S continue their mission on Earth.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/11.jpg" alt="">
+                            <span class="movie-list-item-title">Solo Leveling</span>
+                            <p class="movie-list-item-desc">Sung Jinwoo faces even stronger opponents!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/15.jpg" alt="">
+                            <span class="movie-list-item-title">Chainsaw Man</span>
+                            <p class="movie-list-item-desc">Denji battles devils in new episodes!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">NEW EPISODES THIS WEEK</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/1.jpg" alt="">
+                            <span class="movie-list-item-title">DAN DA DAN - EP 8</span>
+                            <p class="movie-list-item-desc">New episode available! Watch the latest supernatural adventure.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/5.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Lock S2 - EP 7</span>
+                            <p class="movie-list-item-desc">The competition heats up in the latest episode!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/9.jpg" alt="">
+                            <span class="movie-list-item-title">Re:ZERO S3 - EP 6</span>
+                            <p class="movie-list-item-desc">Subaru faces new challenges this week!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/17.jpg" alt="">
+                            <span class="movie-list-item-title">One Piece - EP 1120</span>
+                            <p class="movie-list-item-desc">The Egghead Arc continues with epic new developments!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/2.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Box - EP 9</span>
+                            <p class="movie-list-item-desc">Romance and sports collide in the newest episode!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/4.jpg" alt="">
+                            <span class="movie-list-item-title">365 Days - EP 10</span>
+                            <p class="movie-list-item-desc">The countdown to the wedding continues!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/10.jpg" alt="">
+                            <span class="movie-list-item-title">Ms. Servant - EP 11</span>
+                            <p class="movie-list-item-desc">More mysteries revealed in the latest episode!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">COMING SOON</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/11.jpg" alt="">
+                            <span class="movie-list-item-title">Solo Leveling Season 2</span>
+                            <p class="movie-list-item-desc">Sung Jinwoo returns for more epic battles!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/15.jpg" alt="">
+                            <span class="movie-list-item-title">Chainsaw Man Season 2</span>
+                            <p class="movie-list-item-desc">Denji's story continues with new devils to fight!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/19.jpg" alt="">
+                            <span class="movie-list-item-title">Demon Slayer: Infinity Castle</span>
+                            <p class="movie-list-item-desc">The final arc is coming soon!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/16.jpg" alt="">
+                            <span class="movie-list-item-title">Spy x Family Season 3</span>
+                            <p class="movie-list-item-desc">The Forger family returns for more adventures!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/13.jpg" alt="">
+                            <span class="movie-list-item-title">NieR:Automata Season 2</span>
+                            <p class="movie-list-item-desc">More android battles coming your way!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/18.jpg" alt="">
+                            <span class="movie-list-item-title">Tower of God Season 3</span>
+                            <p class="movie-list-item-desc">Continue climbing the mysterious tower!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/12.jpg" alt="">
+                            <span class="movie-list-item-title">Black Clover: New Arc</span>
+                            <p class="movie-list-item-desc">Asta's journey continues in an all-new arc!</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

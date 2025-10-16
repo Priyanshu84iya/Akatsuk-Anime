@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Akatsuki - Watch Anime Online</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">Akatsuki</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item active"><a href="index.html">Home</a></li>
+                    <li class="menu-list-item"><a href="movies.html">Movies</a></li>
+                    <li class="menu-list-item"><a href="tv-series.html">TV Series</a></li>
+                    <li class="menu-list-item"><a href="popular.html">Most Popular</a></li>
+                    <li class="menu-list-item"><a href="top-airing.html">Top Airing</a></li>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <img class="profile-picture" src="img/profile.gif" alt="">
+                <div class="profile-text-container" id="profile-trigger">
+                    <span class="profile-text">Profile</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <div class="profile-dropdown-header">
+                        <img src="img/profile.gif" alt="Profile" class="profile-dropdown-img">
+                        <div>
+                            <div class="profile-dropdown-name">Pry Uchiha</div>
+                            <div class="profile-dropdown-email">uchiha@akatsuki.com</div>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown-divider"></div>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-user"></i> My Profile
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-heart"></i> My Favorites
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-history"></i> Watch History
+                    </a>
+                    <a href="#" class="profile-dropdown-item">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                    <div class="profile-dropdown-divider"></div>
+                    <a href="#" class="profile-dropdown-item logout">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+                <div class="toggle">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <i class="left-menu-icon fas fa-search" id="search-icon" title="Search Anime"></i>
+        <i class="left-menu-icon fas fa-home" id="home-icon" title="Home"></i>
+        <i class="left-menu-icon fas fa-users" id="community-icon" title="Community"></i>
+        <i class="left-menu-icon fas fa-bookmark" id="bookmark-icon" title="My Bookmarks"></i>
+        <i class="left-menu-icon fas fa-tv" id="tv-icon" title="TV Series"></i>
+        <i class="left-menu-icon fas fa-hourglass-start" id="airing-icon" title="Currently Airing"></i>
+        <i class="left-menu-icon fas fa-shopping-cart" id="cart-icon" title="Shopping Cart"></i>
+    </div>
+    
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-content">
+            <span class="search-close">&times;</span>
+            <h2>Search Anime</h2>
+            <input type="text" id="search-input" class="search-input" placeholder="Search for anime...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="content-container">
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-1.jpg');">
+                <img class="featured-title" src="img/f-t-1.png" alt="">
+                <p class="featured-desc">Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.</p>
+                <button class="featured-button">WATCH</button>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">NEW RELEASES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/1.jpg" alt="">
+                            <span class="movie-list-item-title">DAN DA DAN</span>
+                            <p class="movie-list-item-desc">Together, they must challenge the paranormal forces threatening their world.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/2.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Box</span>
+                            <p class="movie-list-item-desc">Taiki Inomata loves badminton, but he has a long way to go before he can reach nationals</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/13.jpg" alt="">
+                            <span class="movie-list-item-title">NieR:Automata Ver1.1a</span>
+                            <p class="movie-list-item-desc">The sudden aerial invasion of Earth by (Aliens) and their creations (Machine Lifeforms) led mankind to the brink of extinction.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/4.jpg" alt="">
+                            <span class="movie-list-item-title">365 Days to the Wedding</span>
+                            <p class="movie-list-item-desc">Takuya and Rika work at the same travel agency in Tokyo and are both happily introverted and single</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/5.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Lock</span>
+                            <p class="movie-list-item-desc">Japan’s desire for World Cup glory leads the Japanese Football Association to launch a new rigorous training program to find the national team’s next striker. </p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/6.jpg" alt="">
+                            <span class="movie-list-item-title">Your Name.</span>
+                            <p class="movie-list-item-desc">Mitsuha and Taki are total strangers living completely different lives.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/7.jpg" alt="">
+                            <span class="movie-list-item-title">I Want to Eat Your Pancreas</span>
+                            <p class="movie-list-item-desc">Spring time in April and the last of the cherry blossoms are still in bloom.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">NEW RELEASES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/8.jpg" alt="">
+                            <span class="movie-list-item-title">A Silent Voice</span>
+                            <p class="movie-list-item-desc">After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/9.jpg" alt="">
+                            <span class="movie-list-item-title">Re:ZERO</span>
+                            <p class="movie-list-item-desc">The third season of Re:Zero kara Hajimeru Isekai Seikatsu.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/10.jpg" alt="">
+                            <span class="movie-list-item-title">You are Ms. Servant</span>
+                            <p class="movie-list-item-desc">Hitoyoshi, a high school kid who lives alone, hears a knock on his door.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/11.jpg" alt="">
+                            <span class="movie-list-item-title">Solo Leveling</span>
+                            <p class="movie-list-item-desc">They say whatever doesn’t kill you makes you stronger, but that’s not the case for the world’s weakest hunter Sung Jinwoo.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/12.jpg" alt="">
+                            <span class="movie-list-item-title">Black Clover</span>
+                            <p class="movie-list-item-desc">In a world where magic is everything, Asta and Yuno are both found abandoned at a church on the same day.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/1.jpg" alt="">
+                            <span class="movie-list-item-title">DAN DA DAN</span>
+                            <p class="movie-list-item-desc">Together, they must challenge the paranormal forces threatening their world.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/16.jpg" alt="">
+                            <span class="movie-list-item-title">takt op.Destiny</span>
+                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                                hic fugit similique accusantium.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="featured-content"
+                style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-2.jpg');">
+                <img class="featured-title" src="img/f-t-2.webp" alt="">
+                <p class="featured-desc">Old schoolmates Haru and Gaku will do anything to achieve success. And success to them means earning a trillion dollars! But to do so, they’ll need to take full advantage of their own unique skills. Haru is a persuasive and confident speaker who can connect with anyone, while Gaku, although awkward, is an expert programmer. Will their combined talents be enough to make their dream a reality?
+                </p>
+                <button class="featured-button">WATCH</button>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">NEW RELEASES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/13.jpg" alt="">
+                            <span class="movie-list-item-title">NieR:Automata Ver1.1a</span>
+                            <p class="movie-list-item-desc">The sudden aerial invasion of Earth by (Aliens) and their creations (Machine Lifeforms) led mankind to the brink of extinction.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/2.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Box</span>
+                            <p class="movie-list-item-desc">Taiki Inomata loves badminton, but he has a long way to go before he can reach nationals</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/15.jpg" alt="">
+                            <span class="movie-list-item-title">Chainsaw Man</span>
+                            <p class="movie-list-item-desc">Denji is a young boy who works as a Devil Hunter with the “Chainsaw Devil” Pochita.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/3.jpg" alt="">
+                            <span class="movie-list-item-title">Tying the Knot with an Amagami Sister</span>
+                            <p class="movie-list-item-desc">Uryu Kamihate is a high school student hoping to enroll in Kyoto University’s medical school.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/4.jpg" alt="">
+                            <span class="movie-list-item-title">365 Days to the Wedding</span>
+                            <p class="movie-list-item-desc">Takuya and Rika work at the same travel agency in Tokyo and are both happily introverted and single</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/5.jpg" alt="">
+                            <span class="movie-list-item-title">Blue Lock</span>
+                            <p class="movie-list-item-desc">Japan’s desire for World Cup glory leads the Japanese Football Association to launch a new rigorous training program to find the national team’s next striker. </p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/9.jpg" alt="">
+                            <span class="movie-list-item-title">Re:ZERO</span>
+                            <p class="movie-list-item-desc">The third season of Re:Zero kara Hajimeru Isekai Seikatsu.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+            <div class="movie-list-container">
+                <h1 class="movie-list-title">NEW RELEASES</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/17.jpg" alt="">
+                            <span class="movie-list-item-title">One Piece</span>
+                            <p class="movie-list-item-desc">Embark on a voyage of a lifetime with One Piece.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/18.jpg" alt="">
+                            <span class="movie-list-item-title">Tower of God</span>
+                            <p class="movie-list-item-desc">Reach the top, and everything will be yours.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/19.jpg" alt="">
+                            <span class="movie-list-item-title">Demon Slayer: Kimetsu no Yaiba</span>
+                            <p class="movie-list-item-desc">It is the Taisho Period in Japan.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/7.jpg" alt="">
+                            <span class="movie-list-item-title">I Want to Eat Your Pancreas</span>
+                            <p class="movie-list-item-desc">Spring time in April and the last of the cherry blossoms are still in bloom.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/1.jpg" alt="">
+                            <span class="movie-list-item-title">DAN DA DAN</span>
+                            <p class="movie-list-item-desc">Together, they must challenge the paranormal forces threatening their world.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/16.jpg" alt="">
+                            <span class="movie-list-item-title">takt op.Destiny</span>
+                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
+                                hic fugit similique accusantium.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="img/10.jpg" alt="">
+                            <span class="movie-list-item-title">You are Ms. Servant</span>
+                            <p class="movie-list-item-desc">Hitoyoshi, a high school kid who lives alone, hears a knock on his door.</p>
+                            <button class="movie-list-item-button">Watch</button>
+                        </div>
+                    </div>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
