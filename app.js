@@ -173,3 +173,57 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// Profile Dropdown Functionality
+const profileTrigger = document.getElementById('profile-trigger');
+const profileDropdown = document.getElementById('profile-dropdown');
+const profilePicture = document.querySelector('.profile-picture');
+
+// Toggle dropdown
+function toggleProfileDropdown(e) {
+  e.stopPropagation();
+  profileDropdown.classList.toggle('active');
+}
+
+if (profileTrigger) {
+  profileTrigger.addEventListener('click', toggleProfileDropdown);
+}
+
+if (profilePicture) {
+  profilePicture.addEventListener('click', toggleProfileDropdown);
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', (e) => {
+  if (profileDropdown && !profileDropdown.contains(e.target) && 
+      e.target !== profileTrigger && e.target !== profilePicture) {
+    profileDropdown.classList.remove('active');
+  }
+});
+
+// Profile dropdown item actions
+const profileItems = document.querySelectorAll('.profile-dropdown-item');
+profileItems.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    const text = item.textContent.trim();
+    
+    if (text === 'Logout') {
+      alert('Logout functionality - You will be logged out');
+      profileDropdown.classList.remove('active');
+    } else if (text === 'My Profile') {
+      alert('Redirecting to profile page...');
+      profileDropdown.classList.remove('active');
+    } else if (text === 'My Favorites') {
+      alert('Showing your favorite anime...');
+      profileDropdown.classList.remove('active');
+    } else if (text === 'Watch History') {
+      alert('Loading your watch history...');
+      profileDropdown.classList.remove('active');
+    } else if (text === 'Settings') {
+      alert('Opening settings...');
+      profileDropdown.classList.remove('active');
+    }
+  });
+});
+
+

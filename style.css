@@ -102,6 +102,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  position: relative;
 }
 
 .profile-picture {
@@ -123,14 +124,107 @@ body {
   margin: 0 20px;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
 }
 
 .profile-text-container:hover {
   color: #ff5a00;
+  background-color: rgba(255, 90, 0, 0.1);
 }
 
 .profile-text {
   font-weight: 500;
+}
+
+/* Profile Dropdown */
+.profile-dropdown {
+  position: absolute;
+  top: 60px;
+  right: 100px;
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  min-width: 260px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.profile-dropdown.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-dropdown-header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  gap: 12px;
+  background: linear-gradient(135deg, #ff5a00, #ff8c42);
+}
+
+.profile-dropdown-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.profile-dropdown-name {
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.profile-dropdown-email {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  background-color: #333;
+  margin: 8px 0;
+}
+
+.profile-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #e0e0e0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.profile-dropdown-item:hover {
+  background-color: #2a2a2a;
+  color: #ff5a00;
+  padding-left: 25px;
+}
+
+.profile-dropdown-item i {
+  width: 20px;
+  font-size: 16px;
+}
+
+.profile-dropdown-item.logout {
+  color: #ff4444;
+}
+
+.profile-dropdown-item.logout:hover {
+  background-color: rgba(255, 68, 68, 0.1);
+  color: #ff6666;
 }
 
 .toggle {
