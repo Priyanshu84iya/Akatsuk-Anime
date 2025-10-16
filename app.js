@@ -76,3 +76,100 @@ watchButtons.forEach(button => {
     // You can redirect to a video player page or open a modal
   });
 });
+
+// Search Functionality
+const searchIcon = document.getElementById('search-icon');
+const searchModal = document.getElementById('search-modal');
+const searchClose = document.querySelector('.search-close');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+
+// Anime database for search
+const animeDatabase = [
+  { title: 'DAN DA DAN', desc: 'Together, they must challenge the paranormal forces threatening their world.', img: 'img/1.jpg' },
+  { title: 'Blue Box', desc: 'Taiki Inomata loves badminton, but he has a long way to go before he can reach nationals', img: 'img/2.jpg' },
+  { title: 'Tying the Knot with an Amagami Sister', desc: 'Uryu Kamihate is a high school student hoping to enroll in Kyoto University\'s medical school.', img: 'img/3.jpg' },
+  { title: '365 Days to the Wedding', desc: 'Takuya and Rika work at the same travel agency in Tokyo and are both happily introverted and single', img: 'img/4.jpg' },
+  { title: 'Blue Lock', desc: 'Japan\'s desire for World Cup glory leads the Japanese Football Association to launch a new rigorous training program.', img: 'img/5.jpg' },
+  { title: 'Your Name.', desc: 'Mitsuha and Taki are total strangers living completely different lives.', img: 'img/6.jpg' },
+  { title: 'I Want to Eat Your Pancreas', desc: 'Spring time in April and the last of the cherry blossoms are still in bloom.', img: 'img/7.jpg' },
+  { title: 'A Silent Voice', desc: 'After transferring into a new school, a deaf girl, Shouko Nishimiya, is bullied by the popular Shouya Ishida.', img: 'img/8.jpg' },
+  { title: 'Re:ZERO', desc: 'The third season of Re:Zero kara Hajimeru Isekai Seikatsu.', img: 'img/9.jpg' },
+  { title: 'You are Ms. Servant', desc: 'Hitoyoshi, a high school kid who lives alone, hears a knock on his door.', img: 'img/10.jpg' },
+  { title: 'Solo Leveling', desc: 'They say whatever doesn\'t kill you makes you stronger, but that\'s not the case for the world\'s weakest hunter Sung Jinwoo.', img: 'img/11.jpg' },
+  { title: 'Black Clover', desc: 'In a world where magic is everything, Asta and Yuno are both found abandoned at a church on the same day.', img: 'img/12.jpg' },
+  { title: 'NieR:Automata Ver1.1a', desc: 'The sudden aerial invasion of Earth by (Aliens) and their creations (Machine Lifeforms) led mankind to the brink of extinction.', img: 'img/13.jpg' },
+  { title: 'Chainsaw Man', desc: 'Denji is a young boy who works as a Devil Hunter with the "Chainsaw Devil" Pochita.', img: 'img/15.jpg' },
+  { title: 'takt op.Destiny', desc: 'Music and fate intertwine in a post-apocalyptic world.', img: 'img/16.jpg' },
+  { title: 'One Piece', desc: 'Embark on a voyage of a lifetime with One Piece.', img: 'img/17.jpg' },
+  { title: 'Tower of God', desc: 'Reach the top, and everything will be yours.', img: 'img/18.jpg' },
+  { title: 'Demon Slayer: Kimetsu no Yaiba', desc: 'It is the Taisho Period in Japan.', img: 'img/19.jpg' }
+];
+
+// Open search modal
+if (searchIcon) {
+  searchIcon.addEventListener('click', () => {
+    searchModal.classList.add('active');
+    searchInput.focus();
+  });
+}
+
+// Close search modal
+if (searchClose) {
+  searchClose.addEventListener('click', () => {
+    searchModal.classList.remove('active');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  });
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+  if (e.target === searchModal) {
+    searchModal.classList.remove('active');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  }
+});
+
+// Search functionality
+if (searchInput) {
+  searchInput.addEventListener('input', (e) => {
+    const searchTerm = e.target.value.toLowerCase().trim();
+    
+    if (searchTerm === '') {
+      searchResults.innerHTML = '';
+      return;
+    }
+    
+    const filteredAnime = animeDatabase.filter(anime => 
+      anime.title.toLowerCase().includes(searchTerm) || 
+      anime.desc.toLowerCase().includes(searchTerm)
+    );
+    
+    if (filteredAnime.length === 0) {
+      searchResults.innerHTML = '<div class="no-results">No anime found. Try a different search term.</div>';
+      return;
+    }
+    
+    searchResults.innerHTML = filteredAnime.map(anime => `
+      <div class="search-result-item">
+        <img src="${anime.img}" alt="${anime.title}" class="search-result-img">
+        <div class="search-result-info">
+          <div class="search-result-title">${anime.title}</div>
+          <div class="search-result-desc">${anime.desc}</div>
+        </div>
+      </div>
+    `).join('');
+  });
+}
+
+// Close search with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && searchModal.classList.contains('active')) {
+    searchModal.classList.remove('active');
+    searchInput.value = '';
+    searchResults.innerHTML = '';
+  }
+});
+

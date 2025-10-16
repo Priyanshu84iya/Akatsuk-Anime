@@ -43,7 +43,7 @@
         </div>
     </div>
     <div class="sidebar">
-        <i class="left-menu-icon fas fa-search"></i>
+        <i class="left-menu-icon fas fa-search" id="search-icon"></i>
         <i class="left-menu-icon fas fa-home"></i>
         <i class="left-menu-icon fas fa-users"></i>
         <i class="left-menu-icon fas fa-bookmark"></i>
@@ -51,6 +51,17 @@
         <i class="left-menu-icon fas fa-hourglass-start"></i>
         <i class="left-menu-icon fas fa-shopping-cart"></i>
     </div>
+    
+    <!-- Search Modal -->
+    <div class="search-modal" id="search-modal">
+        <div class="search-modal-content">
+            <span class="search-close">&times;</span>
+            <h2>Search Anime</h2>
+            <input type="text" id="search-input" class="search-input" placeholder="Search for anime...">
+            <div id="search-results" class="search-results"></div>
+        </div>
+    </div>
+    
     <div class="container">
         <div class="content-container">
             <div class="featured-content"
