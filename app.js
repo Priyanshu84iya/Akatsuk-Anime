@@ -71,10 +71,103 @@ const watchButtons = document.querySelectorAll('.movie-list-item-button, .featur
 watchButtons.forEach(button => {
   button.addEventListener('click', (e) => {
     e.stopPropagation();
-    // Add your watch functionality here
-    console.log('Watch button clicked');
-    // You can redirect to a video player page or open a modal
+    
+    // Get anime title
+    let animeTitle = 'Anime';
+    const parentItem = button.closest('.movie-list-item');
+    const featuredContent = button.closest('.featured-content');
+    
+    if (parentItem) {
+      const titleElement = parentItem.querySelector('.movie-list-item-title');
+      if (titleElement) animeTitle = titleElement.textContent;
+    } else if (featuredContent) {
+      const titleImg = featuredContent.querySelector('.featured-title');
+      if (titleImg) animeTitle = titleImg.alt || 'Featured Anime';
+    }
+    
+    openVideoPlayer(animeTitle);
   });
+});
+
+// Video Player Modal
+function openVideoPlayer(animeTitle) {
+  const videoPlayerHTML = `
+    <div class="video-player-modal" id="video-player-modal">
+      <div class="video-player-container">
+        <div class="video-player-header">
+          <h2><i class="fas fa-play-circle"></i> Now Playing: ${animeTitle}</h2>
+          <span class="video-player-close" onclick="closeVideoPlayer()">&times;</span>
+        </div>
+        <div class="video-player-wrapper">
+          <div class="video-placeholder">
+            <i class="fas fa-play-circle play-icon"></i>
+            <p class="video-message">Video player ready</p>
+            <p class="video-submessage">Click play to start watching ${animeTitle}</p>
+          </div>
+          <div class="video-controls">
+            <button class="control-btn" onclick="alert('Rewind 10s')">
+              <i class="fas fa-backward"></i>
+            </button>
+            <button class="control-btn play-pause-btn" onclick="togglePlayPause()">
+              <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn" onclick="alert('Forward 10s')">
+              <i class="fas fa-forward"></i>
+            </button>
+            <div class="volume-control">
+              <i class="fas fa-volume-up"></i>
+              <input type="range" class="volume-slider" min="0" max="100" value="70">
+            </div>
+            <button class="control-btn fullscreen-btn" onclick="alert('Fullscreen mode')">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="episode-selector">
+            <button class="episode-btn active">Episode 1</button>
+            <button class="episode-btn">Episode 2</button>
+            <button class="episode-btn">Episode 3</button>
+            <button class="episode-btn">Episode 4</button>
+            <button class="episode-btn">Episode 5</button>
+          </div>
+          <div class="video-description">
+            <h3>About this anime</h3>
+            <p>Experience the best anime streaming with high-quality video and smooth playback. Enjoy ${animeTitle} with subtitles and multiple quality options.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  document.body.insertAdjacentHTML('beforeend', videoPlayerHTML);
+  document.body.style.overflow = 'hidden';
+}
+
+function closeVideoPlayer() {
+  const modal = document.getElementById('video-player-modal');
+  if (modal) {
+    modal.remove();
+    document.body.style.overflow = '';
+  }
+}
+
+function togglePlayPause() {
+  const btn = document.querySelector('.play-pause-btn i');
+  if (btn.classList.contains('fa-play')) {
+    btn.classList.remove('fa-play');
+    btn.classList.add('fa-pause');
+  } else {
+    btn.classList.remove('fa-pause');
+    btn.classList.add('fa-play');
+  }
+}
+
+// Close video player with Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeVideoPlayer();
+  }
 });
 
 // Search Functionality

@@ -340,27 +340,35 @@ body {
 .featured-button {
   background: linear-gradient(135deg, #ff5a00, #ff8c42);
   color: white;
-  padding: 12px 35px;
+  padding: 14px 40px;
   border-radius: 8px;
   border: none;
   outline: none;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
   width: fit-content;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 90, 0, 0.4);
   letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.featured-button::before {
+  content: '▶';
+  font-size: 14px;
 }
 
 .featured-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(255, 90, 0, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(255, 90, 0, 0.7);
   background: linear-gradient(135deg, #ff6b0f, #ff9d52);
 }
 
 .featured-button:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
 .movie-list-container {
@@ -462,7 +470,7 @@ body {
 }
 
 .movie-list-item-button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: linear-gradient(135deg, #4dbf00, #5dd605);
   color: white;
   border-radius: 8px;
@@ -477,12 +485,20 @@ body {
   font-weight: 700;
   font-size: 14px;
   box-shadow: 0 4px 15px rgba(77, 191, 0, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.movie-list-item-button::before {
+  content: '▶';
+  font-size: 12px;
 }
 
 .movie-list-item-button:hover {
   background: linear-gradient(135deg, #5dd605, #6ee615);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(77, 191, 0, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(77, 191, 0, 0.7);
 }
 
 .arrow {
@@ -845,6 +861,260 @@ body {
   color: #aaa;
   padding: 40px 20px;
   font-size: 16px;
+}
+
+/* Video Player Modal */
+.video-player-modal {
+  display: flex;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+}
+
+.video-player-container {
+  background-color: #1a1a1a;
+  border-radius: 15px;
+  width: 95%;
+  max-width: 1200px;
+  margin: 20px;
+  box-shadow: 0 10px 50px rgba(255, 90, 0, 0.3);
+  animation: slideDown 0.4s ease;
+}
+
+.video-player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: linear-gradient(135deg, #ff5a00, #ff8c42);
+  border-radius: 15px 15px 0 0;
+}
+
+.video-player-header h2 {
+  color: white;
+  font-family: "Sen", sans-serif;
+  font-size: 24px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.video-player-close {
+  color: white;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  line-height: 1;
+}
+
+.video-player-close:hover {
+  transform: rotate(90deg);
+  color: #ffccaa;
+}
+
+.video-player-wrapper {
+  position: relative;
+  background-color: #000;
+  margin: 0;
+}
+
+.video-placeholder {
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-placeholder::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 90, 0, 0.1), transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.play-icon {
+  font-size: 120px;
+  color: #ff5a00;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 0 30px rgba(255, 90, 0, 0.8);
+}
+
+.play-icon:hover {
+  transform: scale(1.1);
+  color: #ff8c42;
+}
+
+.video-message {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 10px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.video-submessage {
+  color: #aaa;
+  font-size: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.video-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 30px;
+  background-color: #1a1a1a;
+  border-top: 2px solid #2a2a2a;
+}
+
+.control-btn {
+  background-color: #2a2a2a;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 18px;
+}
+
+.control-btn:hover {
+  background-color: #ff5a00;
+  transform: scale(1.1);
+}
+
+.play-pause-btn {
+  background: linear-gradient(135deg, #ff5a00, #ff8c42);
+  padding: 15px 20px;
+  font-size: 20px;
+}
+
+.play-pause-btn:hover {
+  background: linear-gradient(135deg, #ff6b0f, #ff9d52);
+  transform: scale(1.15);
+}
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+  color: white;
+}
+
+.volume-slider {
+  width: 100px;
+  height: 6px;
+  border-radius: 3px;
+  background: #2a2a2a;
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ff5a00;
+  cursor: pointer;
+}
+
+.fullscreen-btn {
+  margin-left: 10px;
+}
+
+.video-info {
+  padding: 30px;
+}
+
+.episode-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.episode-btn {
+  padding: 10px 20px;
+  background-color: #2a2a2a;
+  color: white;
+  border: 2px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.episode-btn:hover {
+  background-color: #333;
+  border-color: #ff5a00;
+  transform: translateY(-2px);
+}
+
+.episode-btn.active {
+  background: linear-gradient(135deg, #ff5a00, #ff8c42);
+  border-color: #ff5a00;
+}
+
+.video-description h3 {
+  color: #ff5a00;
+  margin-bottom: 15px;
+  font-family: "Sen", sans-serif;
+  font-size: 20px;
+}
+
+.video-description p {
+  color: #ccc;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  .video-player-header h2 {
+    font-size: 18px;
+  }
+  
+  .play-icon {
+    font-size: 80px;
+  }
+  
+  .video-controls {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .volume-control {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 
